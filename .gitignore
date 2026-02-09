@@ -1,0 +1,17 @@
+﻿# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data and artifacts
+models/
+reports/
+outputs/
+
+# OS
+.DS_Store
+Thumbs.db

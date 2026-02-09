@@ -1,42 +1,35 @@
-# Civil Engineering - Machine Learning & AI Systems
+﻿# Civil Engineering - Machine Learning & AI Systems
 
-## 📋 Descrição do Projeto
+## Description
+This project develops machine learning models for civil engineering data, with focus on robust preprocessing, reproducible evaluation, and clear project structure.
 
-Este projeto tem como objetivo desenvolver **algoritmos de machine learning** e **sistemas de inteligência artificial** aplicados à área de **engenharia civil**. Utilizamos técnicas avançadas de análise de dados, modelagem preditiva e sistemas inteligentes para resolver problemas complexos em engenharia civil, como análise estrutural, previsão de capacidade de carga, detecção de anomalias sísmicas e estimativa de consumo de energia.
-
-## 📁 Estrutura do Repositório
-
+## Repository Structure
 ```
 Civil-Engineering/
-│
-├── 📄 read.me                          # Documentação principal do projeto
-├── 📜 LICENSE                           # Licença do projeto
-│
-├── 📊 datasets/                         # Dados utilizados nos modelos
-│   ├── bim_ai_civil_engineering_dataset.csv      # Dataset de BIM e IA
-│   ├── rc_beam_bearing_capacity_dataset.csv      # Dataset de capacidade de carga em vigas RC
-│   └── seismic-bumps.arff                        # Dataset de atividades sísmicas
-│
-└── 📓 notebooks/                        # Análises e modelos em Jupyter Notebooks
-    └── Ensemble.ipynb                   # Notebook com modelos ensemble
+|
+|-- LICENSE
+|-- README.md
+|-- datasets/                  # Raw datasets (immutable)
+|-- notebooks/                 # Exploration notebooks
+|-- src/                       # Reusable code (pipelines, configs)
+|-- models/                    # Saved models and artifacts
+|-- reports/                   # Figures and analysis outputs
+|-- outputs/                   # Temporary outputs
 ```
 
-## 🎯 Objetivos
+## Reproducibility
+- Fixed random seed in notebooks and pipelines.
+- No data leakage: preprocessing happens inside pipelines and is fit only on training folds.
+- Stratified splitting is used for imbalanced targets.
 
-- Desenvolver modelos preditivos para problemas em engenharia civil
-- Implementar técnicas de machine learning avançadas (ensemble methods, deep learning, etc.)
-- Analisar dados estruturais, sísmicos e de consumo de energia
-- Criar sistemas de IA robustos e interpretáveis para aplicações práticas
+## How to Run
+1. Install dependencies from `requirements.txt`.
+2. Open `notebooks/Ensemble.ipynb` and run the cells in order.
 
+## Author
+Lucca Romagnolli
 
-## 👨‍💻 Autor
+## License
+See `LICENSE` for details.
 
-**Lucca Romagnolli**
-
-## 📝 Licença
-
-Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
----
-
-**Última atualização:** Fevereiro de 2026
+Last update: February 2026
