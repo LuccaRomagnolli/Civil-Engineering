@@ -17,15 +17,6 @@ Civil-Engineering/
 |-- outputs/                   # Temporary outputs
 ```
 
-## Reproducibility
-- Fixed random seed in notebooks and pipelines.
-- No data leakage: preprocessing happens inside pipelines and is fit only on training folds.
-- Stratified splitting is used for imbalanced targets.
-
-## How to Run
-1. Install dependencies from `requirements.txt`.
-2. Open `notebooks/Ensemble.ipynb` and run the cells in order.
-
 ## Author
 Lucca Romagnolli
 
