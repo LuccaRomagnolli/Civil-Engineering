@@ -1,0 +1,27 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: Smoke test whole-detection",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/smoke_test_whole_detection.py",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "Python: Treinar baseline whole-detection",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/treinar_baseline.py",
+      "args": [
+        "--epocas",
+        "5",
+        "--batch-size",
+        "32"
+      ],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}

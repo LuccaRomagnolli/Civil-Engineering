@@ -1,6 +1,11 @@
-﻿pandas
+pandas
 numpy
 scikit-learn
 matplotlib
 seaborn
 joblib
+pillow
+opencv-python
+tensorflow
+jupyter
+notebook

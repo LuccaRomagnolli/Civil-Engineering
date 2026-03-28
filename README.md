@@ -1,26 +1,42 @@
-﻿# Civil Engineering - Machine Learning & AI Systems
+# Civil Engineering - Machine Learning & AI Systems
 
-## Description
-This project develops machine learning models for civil engineering data, with focus on robust preprocessing, reproducible evaluation, and clear project structure.
+## Visao Geral
+Repositorio com pipelines de aprendizado de maquina para engenharia civil, com foco em reproducibilidade, estrutura profissional e execucao local no VS Code.
 
-## Repository Structure
-```
+## Fluxo Whole-Detection (CNN Baseline)
+- Notebook principal: `notebooks/whole-detection/deteccao-buracos-cnn-baseline.ipynb`
+- Dataset local: `datasets/whole-detection/archive`
+- Modulo reutilizavel: `src/deteccao_buracos.py`
+- Scripts operacionais:
+  - `scripts/smoke_test_whole_detection.py`
+  - `scripts/treinar_baseline.py`
+
+## Estrutura do Repositorio
+```text
 Civil-Engineering/
-|
-|-- LICENSE
+|-- .vscode/                  # Configuracoes de execucao e debug no VS Code
+|-- datasets/                 # Datasets brutos
+|-- notebooks/                # Notebooks de analise e experimentacao
+|-- scripts/                  # Scripts de treino e validacao rapida
+|-- src/                      # Codigo reutilizavel
+|-- models/                   # Modelos salvos (ignorado no git)
+|-- reports/                  # Relatorios e figuras (ignorado no git)
+|-- outputs/                  # Saidas temporarias (ignorado no git)
+|-- requirements.txt
 |-- README.md
-|-- datasets/                  # Raw datasets (immutable)
-|-- notebooks/                 # Exploration notebooks
-|-- src/                       # Reusable code (pipelines, configs)
-|-- models/                    # Saved models and artifacts
-|-- reports/                   # Figures and analysis outputs
-|-- outputs/                   # Temporary outputs
+`-- LICENSE
 ```
 
-## Author
+## Como Executar (VS Code)
+1. Crie e ative um ambiente virtual Python.
+2. Rode a task `Instalar dependencias` em `Terminal > Run Task`.
+3. Rode a task `Smoke test whole-detection` para validar o pipeline com 1 epoca.
+4. Abra e execute o notebook `deteccao-buracos-cnn-baseline.ipynb` do inicio ao fim.
+
+## Autor
 Lucca Romagnolli
 
-## License
-See `LICENSE` for details.
+## Licenca
+Consulte o arquivo `LICENSE`.
 
-Last update: February 2026
+Ultima atualizacao: Marco 2026
