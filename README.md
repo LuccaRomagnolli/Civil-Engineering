@@ -3,14 +3,6 @@
 ## Visao Geral
 Repositorio com pipelines de aprendizado de maquina para engenharia civil, com foco em reproducibilidade, estrutura profissional e execucao local no VS Code.
 
-## Fluxo Whole-Detection (CNN Baseline)
-- Notebook principal: `notebooks/whole-detection/deteccao-buracos-cnn-baseline.ipynb`
-- Dataset local: `datasets/whole-detection/archive`
-- Modulo reutilizavel: `src/deteccao_buracos.py`
-- Scripts operacionais:
-  - `scripts/smoke_test_whole_detection.py`
-  - `scripts/treinar_baseline.py`
-
 ## Estrutura do Repositorio
 ```text
 Civil-Engineering/
