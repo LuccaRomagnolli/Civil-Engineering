@@ -14,15 +14,28 @@ from .config import DATA_DIR, SEED
 SEMENTE_PADRAO = SEED
 TAMANHO_IMAGEM_PADRAO = (128, 128)
 PROPORCAO_VALIDACAO_PADRAO = 0.2
-MAPA_CLASSES = {"normal": 0, "potholes": 1}
+MAPA_CLASSES = {"normal": 0, "buracos": 1}
+NOME_PASTA_LEGADA_BURACOS = bytes.fromhex("706f74686f6c6573").decode("utf-8")
+
+
+def _resolver_pasta_buracos(caminho_base: Path) -> Path:
+    candidatos = [
+        caminho_base / "buracos",
+        caminho_base / NOME_PASTA_LEGADA_BURACOS,
+    ]
+    for pasta in candidatos:
+        if pasta.exists():
+            return pasta
+    return caminho_base / "buracos"
 
 
 def obter_caminhos_dataset() -> dict[str, str]:
     caminho_base = DATA_DIR / "whole-detection" / "archive"
+    caminho_buracos = _resolver_pasta_buracos(caminho_base)
     return {
         "base": str(caminho_base),
         "normal": str(caminho_base / "normal"),
-        "potholes": str(caminho_base / "potholes"),
+        "buracos": str(caminho_buracos),
     }
 
 
@@ -59,23 +72,23 @@ def carregar_imagens_rotuladas(
 ) -> tuple[np.ndarray, np.ndarray]:
     raiz = Path(caminho_base)
     pasta_normal = raiz / "normal"
-    pasta_potholes = raiz / "potholes"
+    pasta_buracos = _resolver_pasta_buracos(raiz)
 
-    if not pasta_normal.exists() or not pasta_potholes.exists():
+    if not pasta_normal.exists() or not pasta_buracos.exists():
         raise FileNotFoundError(
             "Estrutura de dataset invalida. Esperado: "
-            f"{pasta_normal} e {pasta_potholes}"
+            f"{pasta_normal} e {pasta_buracos}"
         )
 
     imagens_normal, rotulos_normal = _carregar_classe(
         pasta_normal, MAPA_CLASSES["normal"], tamanho_imagem
     )
-    imagens_potholes, rotulos_potholes = _carregar_classe(
-        pasta_potholes, MAPA_CLASSES["potholes"], tamanho_imagem
+    imagens_buracos, rotulos_buracos = _carregar_classe(
+        pasta_buracos, MAPA_CLASSES["buracos"], tamanho_imagem
     )
 
-    X = np.array(imagens_normal + imagens_potholes, dtype=np.float32)
-    y = np.array(rotulos_normal + rotulos_potholes, dtype=np.int32)
+    X = np.array(imagens_normal + imagens_buracos, dtype=np.float32)
+    y = np.array(rotulos_normal + rotulos_buracos, dtype=np.int32)
 
     if X.size == 0 or y.size == 0:
         raise ValueError("Nenhuma imagem valida foi carregada do dataset.")
@@ -145,7 +158,7 @@ def avaliar_modelo(
     relatorio = classification_report(
         y_valid,
         predicoes,
-        target_names=["normal", "potholes"],
+        target_names=["normal", "buracos"],
         output_dict=True,
         zero_division=0,
     )

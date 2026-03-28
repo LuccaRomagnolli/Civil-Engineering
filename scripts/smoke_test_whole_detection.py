@@ -40,7 +40,7 @@ def main() -> None:
     classes_unicas, contagens = np.unique(y, return_counts=True)
     contagem_classes = {int(classe): int(total) for classe, total in zip(classes_unicas, contagens)}
     _assert(MAPA_CLASSES["normal"] in contagem_classes, "Classe normal ausente.")
-    _assert(MAPA_CLASSES["potholes"] in contagem_classes, "Classe potholes ausente.")
+    _assert(MAPA_CLASSES["buracos"] in contagem_classes, "Classe buracos ausente.")
 
     X_treino, X_valid, y_treino, y_valid = separar_treino_validacao(
         X, y, PROPORCAO_VALIDACAO_PADRAO, SEMENTE_PADRAO
@@ -62,7 +62,7 @@ def main() -> None:
     relatorio = resultados["relatorio_classificacao"]
 
     _assert(matriz.shape == (2, 2), "Matriz de confusao deve ser 2x2.")
-    _assert("normal" in relatorio and "potholes" in relatorio, "Relatorio incompleto.")
+    _assert("normal" in relatorio and "buracos" in relatorio, "Relatorio incompleto.")
     _assert("precision" in relatorio["normal"], "Metricas de precisao ausentes.")
     _assert(0.0 <= resultados["acuracia"] <= 1.0, "Acuracia fora do intervalo esperado.")
 
