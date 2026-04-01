@@ -170,7 +170,7 @@ O projeto apresenta uma abordagem tecnicamente fundamentada para apoio a inspeç
 <br/>
 
 **Universidade de Brasília — UnB**  
-Departamento de Ciência da Computação
+Departamento de Engenharia Civil - ENC
 
 <sub>Este documento é parte integrante do projeto acadêmico e deve ser referenciado de acordo com as normas institucionais vigentes.</sub>
 
