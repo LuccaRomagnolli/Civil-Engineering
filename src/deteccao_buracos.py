@@ -1,8 +1,8 @@
 from __future__ import annotations
 
+from functools import lru_cache
 from pathlib import Path
 
-import cv2
 import numpy as np
 import tensorflow as tf
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
@@ -18,6 +18,24 @@ MAPA_CLASSES = {"normal": 0, "buracos": 1}
 NOME_PASTA_LEGADA_BURACOS = bytes.fromhex("706f74686f6c6573").decode("utf-8")
 
 
+@lru_cache(maxsize=1)
+def _cv2():
+    """Carrega OpenCV sob demanda (evita falhar ao importar `src` se o pacote não estiver instalado)."""
+    try:
+        import cv2 as opencv
+    except ImportError as exc:
+        raise ImportError(
+            "Dependência ausente: opencv-python (módulo cv2). "
+            "Instale com: pip install opencv-python"
+        ) from exc
+    return opencv
+
+
+def obter_cv2():
+    """Retorna o módulo `cv2` (mesma mensagem de erro que `_cv2`). Útil para inferência no notebook."""
+    return _cv2()
+
+
 def _resolver_pasta_buracos(caminho_base: Path) -> Path:
     candidatos = [
         caminho_base / "buracos",
@@ -29,8 +47,10 @@ def _resolver_pasta_buracos(caminho_base: Path) -> Path:
     return caminho_base / "buracos"
 
 
-def obter_caminhos_dataset() -> dict[str, str]:
-    caminho_base = DATA_DIR / "whole-detection" / "archive"
+def obter_caminhos_dataset(raiz_datasets: Path | str | None = None) -> dict[str, str]:
+    """Resolve pastas do dataset. `raiz_datasets` equivale a `DATA_DIR` (pasta `datasets/` do projeto)."""
+    base = Path(raiz_datasets) if raiz_datasets is not None else DATA_DIR
+    caminho_base = base / "whole-detection" / "archive"
     caminho_buracos = _resolver_pasta_buracos(caminho_base)
     return {
         "base": str(caminho_base),
@@ -45,6 +65,7 @@ def _configurar_semente(semente: int) -> None:
 
 
 def _preprocessar_imagem(img_bgr: np.ndarray, tamanho_imagem: tuple[int, int]) -> np.ndarray:
+    cv2 = _cv2()
     img_redimensionada = cv2.resize(img_bgr, tamanho_imagem)
     img_rgb = cv2.cvtColor(img_redimensionada, cv2.COLOR_BGR2RGB)
     img_normalizada = img_rgb.astype(np.float32) / 255.0
@@ -54,6 +75,7 @@ def _preprocessar_imagem(img_bgr: np.ndarray, tamanho_imagem: tuple[int, int]) -
 def _carregar_classe(
     pasta_classe: Path, rotulo: int, tamanho_imagem: tuple[int, int]
 ) -> tuple[list[np.ndarray], list[int]]:
+    cv2 = _cv2()
     imagens: list[np.ndarray] = []
     rotulos: list[int] = []
 

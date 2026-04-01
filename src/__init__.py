@@ -7,6 +7,7 @@ from .deteccao_buracos import (
     carregar_imagens_rotuladas,
     construir_cnn_baseline,
     obter_caminhos_dataset,
+    obter_cv2,
     separar_treino_validacao,
     treinar_modelo,
 )
@@ -20,6 +21,7 @@ __all__ = [
     "carregar_imagens_rotuladas",
     "construir_cnn_baseline",
     "obter_caminhos_dataset",
+    "obter_cv2",
     "separar_treino_validacao",
     "treinar_modelo",
 ]
