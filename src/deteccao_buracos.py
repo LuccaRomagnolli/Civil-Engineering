@@ -171,7 +171,10 @@ def treinar_modelo(
 
 
 def avaliar_modelo(
-    modelo: tf.keras.Model, X_valid: np.ndarray, y_valid: np.ndarray
+    modelo: tf.keras.Model,
+    X_valid: np.ndarray,
+    y_valid: np.ndarray,
+    target_names: tuple[str, str] = ("normal", "buracos"),
 ) -> dict[str, object]:
     probabilidades = modelo.predict(X_valid, verbose=0).ravel()
     predicoes = (probabilidades >= 0.5).astype(np.int32)
@@ -180,7 +183,7 @@ def avaliar_modelo(
     relatorio = classification_report(
         y_valid,
         predicoes,
-        target_names=["normal", "buracos"],
+        target_names=list(target_names),
         output_dict=True,
         zero_division=0,
     )

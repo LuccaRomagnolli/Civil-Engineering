@@ -195,6 +195,7 @@ def avaliar_modelo_softmax(
     y_valid: np.ndarray,
     nome_backbone: str,
     batch_size: int = 32,
+    target_names: tuple[str, str] = ("normal", "buracos"),
 ) -> dict[str, object]:
     """Avalia modelo com saída softmax (2 classes). Inclui AUC, F1 macro e probabilidade da classe positiva."""
     x = preprocess_numpy_rgb_01(X_valid, nome_backbone)
@@ -206,7 +207,7 @@ def avaliar_modelo_softmax(
     relatorio = classification_report(
         y_valid,
         preds,
-        target_names=["normal", "buracos"],
+        target_names=list(target_names),
         output_dict=True,
         zero_division=0,
     )
