@@ -19,7 +19,7 @@
 
 <br/>
 
-> **Trabalho de Conclusão / Projeto de Pesquisa**  
+> **Projeto de Pesquisa**  
 > Universidade de Brasília — Departamento de Ciência da Computação
 
 | | |
