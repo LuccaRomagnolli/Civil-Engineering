@@ -16,9 +16,7 @@
 [![Keras](https://img.shields.io/badge/Keras-API-D00000?style=flat-square&logo=keras&logoColor=white)](https://keras.io)
 [![License](https://img.shields.io/badge/Licença-Acadêmica-4B8BBE?style=flat-square)](#)
 
-<br/>
-
-> **Trabalho de Conclusão / Projeto de Pesquisa**  
+*Projeto de Pesquisa**  
 > Universidade de Brasília — Departamento de Ciência da Computação
 
 | | |
