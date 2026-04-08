@@ -251,19 +251,6 @@ O recorte `STRAHNET` destaca corredores de relevância estratégica para mobilid
 
 ---
 
-### Consistência entre `MILES`, `KM` e `Shape__Length`
-
-#### Conversão `MILES ↔ KM`
-
-| Verificação | Valor |
-|---|---:|
-| Mediana de `KM / MILES` | 1,609354 |
-| Erro absoluto médio | 0,000453 km |
-| Erro absoluto máximo | 0,001525 km |
-| Percentil 99 do erro absoluto | 0,001174 km |
-
-Os campos `MILES` e `KM` estão altamente coerentes. A diferença observada é compatível com arredondamento numérico e não representa problema prático para análise exploratória ou indicadores executivos.
-
 #### Interpretação de `Shape__Length`
 
 | Medida | Valor |
