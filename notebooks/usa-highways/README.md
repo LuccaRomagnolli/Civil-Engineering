@@ -2,158 +2,183 @@
 
 <br/>
 
-<img src="../../images/Logo_unb-removebg-preview.png" alt="Universidade de Brasília" width="180"/>
+<img src="../../images/Logo_unb-removebg-preview.png" alt="Universidade de Brasília" width="160"/>
 
 <br/><br/>
 
-# Análise Exploratória da Malha Rodoviária dos EUA (NHPN)
-### National Highway Planning Network com foco em engenharia e planejamento
+# Análise Exploratória da Malha Rodoviária dos EUA
+## National Highway Planning Network (NHPN)
 
 <br/>
 
 [![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?style=flat-square&logo=python&logoColor=white)](https://python.org)
-[![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?style=flat-square&logo=pandas&logoColor=white)](https://pandas.pydata.org)
-[![Matplotlib](https://img.shields.io/badge/Matplotlib-Visualiza%C3%A7%C3%A3o-11557C?style=flat-square)](https://matplotlib.org)
-[![Seaborn](https://img.shields.io/badge/Seaborn-Estat%C3%ADstica-2E6F95?style=flat-square)](https://seaborn.pydata.org)
-[![License](https://img.shields.io/badge/Licença-Acadêmica-4B8BBE?style=flat-square)](#)
+[![Pandas](https://img.shields.io/badge/Pandas-2.x-150458?style=flat-square&logo=pandas&logoColor=white)](https://pandas.pydata.org)
+[![Matplotlib](https://img.shields.io/badge/Matplotlib-Visualização-11557C?style=flat-square)](https://matplotlib.org)
+[![Seaborn](https://img.shields.io/badge/Seaborn-Estatística-2E6F95?style=flat-square)](https://seaborn.pydata.org)
+[![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?style=flat-square&logo=jupyter&logoColor=white)](https://jupyter.org)
+[![License](https://img.shields.io/badge/Licença-Acadêmica-4B8BBE?style=flat-square)](#licença)
 
 <br/>
 
-> **Projeto de Pesquisa**  
-> Universidade de Brasília — Departamento de Ciência da Computação
+> Projeto de pesquisa desenvolvido no âmbito do **Departamento de Engenharia Civil**  
+> da Universidade de Brasília (UnB), com foco em planejamento de infraestrutura viária.
 
-| | |
+| Campo | Detalhe |
 |---|---|
 | **Autor** | Lucca Maximus Romagnolli Soares |
 | **Instituição** | Universidade de Brasília (UnB) |
-| **Data de Execução** | 06 de abril de 2026 |
-
-<br/>
+| **Departamento** | Engenharia Civil — ENC |
+| **Data de execução** | 06 de abril de 2026 |
 
 </div>
 
 ---
 
-## Resumo
+## Visão Geral
 
-Este projeto apresenta uma **análise exploratória completa (EDA)** da base `National Highway Planning Network (NHPN)`, com ênfase em distribuição funcional da malha, cobertura por estado, participação de corredores estratégicos e auditoria de consistência dos campos de extensão (`MILES`, `KM`, `Shape__Length`).
+Este projeto realiza uma **análise exploratória de dados (EDA)** completa sobre a base *National Highway Planning Network (NHPN)*, que reúne mais de **626 mil segmentos** da malha rodoviária norte-americana. O trabalho cobre desde a auditoria de qualidade dos dados até a extração de insights estratégicos para planejamento de transportes.
 
-O notebook principal `eda-nhpn.ipynb` organiza o fluxo analítico para apoiar decisões em **planejamento de infraestrutura viária**, **priorização de investimento** e **controle de qualidade de dados de rede**.
+Os principais eixos da análise são:
 
----
-
-## 1. Contexto e Motivação
-
-Bases nacionais de rodovias são fundamentais para estudos de mobilidade, logística e manutenção da infraestrutura civil. No entanto, sua utilização prática depende de três fatores: interpretação correta de códigos técnicos, visão territorial por estado e validação da consistência métrica dos trechos.
-
-Neste trabalho, foi estruturado um pipeline de EDA com foco em:
-
-- leitura e perfilamento de uma base de grande escala (mais de 600 mil segmentos);
-- tradução de códigos (`F_SYSTEM`, `STFIPS`, `NHS`, `STRAHNET`) para leitura técnica aplicada;
-- identificação de padrões estruturais da rede (rural/urbano, corredores e continuidade linear);
-- geração de insights operacionais para engenharia de transportes.
+- **Distribuição funcional** da malha por classe de via (`F_SYSTEM`)
+- **Cobertura territorial** por estado (extensão em km)
+- **Corredores estratégicos**: NHS, STRAHNET e sinalização interestadual
+- **Consistência métrica** entre os campos `MILES`, `KM` e `Shape__Length`
+- **Continuidade topológica** por rota (segmentos, gaps e sobreposições)
 
 ---
 
-## 2. Metodologia
+## Contexto e Motivação
 
-### 2.1 Base de Dados
+Bases nacionais de rodovias são fundamentais para estudos de mobilidade, logística e manutenção da infraestrutura civil. Sua utilização prática, porém, exige três condições: interpretação correta de códigos técnicos, visão territorial por estado e validação rigorosa da consistência métrica dos trechos.
+
+Este trabalho estrutura um pipeline de EDA orientado a três perfis de uso:
+
+| Perfil | Aplicação |
+|---|---|
+| Engenharia de transportes | Priorização de investimentos por classe funcional |
+| Planejamento territorial | Cobertura por estado e rede estratégica |
+| Controle de qualidade | Auditoria de consistência e topologia da rede |
+
+---
+
+## Dados
 
 | Parâmetro | Valor |
 |---|---|
-| Fonte | `datasets/NTAD_National_Highway_Planning_Network_-129350642200434263.csv` |
-| Unidade de análise | Trecho viário (segmento) |
-| Escala geográfica | Estados Unidos (agregações por `STFIPS`) |
-| Total de linhas | 626.366 |
-| Total de colunas | 46 |
+| **Fonte** | NTAD — National Highway Planning Network |
+| **Arquivo** | `NTAD_National_Highway_Planning_Network_-129350642200434263.csv` |
+| **Unidade de análise** | Trecho viário (segmento) |
+| **Escala geográfica** | Estados Unidos (agrupamento por `STFIPS`) |
+| **Total de linhas** | 626.366 |
+| **Total de colunas** | 46 |
 
-### 2.2 Qualidade e Preparação
+### Qualidade dos dados
 
-- Verificação de estrutura, tipos e unicidade de chaves (`OBJECTID`, `ROUTE_ID`, `RECID`, `FAC_ID`, `LRSKEY`);
-- Auditoria de dados faltantes (nível muito baixo, com destaque para `Shape__Length` em 0,002%);
-- Mapeamento de códigos FIPS para nome de estados;
-- Padronização de categorias para análises comparativas.
-
-### 2.3 Eixos Analíticos do Notebook
-
-1. Extensão da malha por classe funcional (`F_SYSTEM`);
-2. Extensão total por estado (km);
-3. Corredores principais por sinalização (`SIGNT1`/`SIGN1`);
-4. Cobertura do `NHS`;
-5. Consistência entre `MILES`, `KM` e `Shape__Length`;
-6. Comparativo rural vs. urbano (`URBAN_CODE` / `RUCODE`);
-7. Cobertura estratégica militar (`STRAHNET`) por estado;
-8. Auditoria de continuidade linear por rota (`ROUTE_ID`, `BEGMP`, `ENDMP`).
+- Dados faltantes em nível muito baixo (destaque: `Shape__Length` ausente em 0,002% dos registros)
+- Campos de chave únicos verificados: `OBJECTID`, `ROUTE_ID`, `RECID`, `FAC_ID`, `LRSKEY`
+- Códigos FIPS traduzidos para nome completo de cada estado
+- Categorias padronizadas para viabilizar análises comparativas
 
 ---
 
-## 3. Principais Resultados
+## Metodologia
 
-> Resultados obtidos diretamente da execução registrada no notebook `eda-nhpn.ipynb`.
+O notebook `eda-nhpn.ipynb` organiza oito eixos analíticos sequenciais:
 
-<div align="center">
+```
+1. Extensão da malha por classe funcional (F_SYSTEM)
+2. Extensão total por estado (km)
+3. Corredores principais por sinalização (SIGNT1 / SIGN1)
+4. Cobertura do NHS (National Highway System)
+5. Consistência entre MILES, KM e Shape__Length
+6. Comparativo rural vs. urbano (URBAN_CODE / RUCODE)
+7. Cobertura estratégica militar (STRAHNET) por estado
+8. Auditoria de continuidade linear por rota (ROUTE_ID, BEGMP, ENDMP)
+```
+
+---
+
+## Resultados
+
+### Indicadores gerais
 
 | Indicador | Resultado |
 |---|:---:|
-| Classe funcional com maior extensão | **Minor Arterial (32,87% da malha em milhas)** |
-| Estado com maior extensão total | **Texas (54.760 km)** |
-| Participação de corredores `I/US` (trechos) | **15,47%** |
-| Participação de corredores `I/US` (extensão) | **10,68%** |
-| Participação do código `NHS = 1` na extensão total | **10,69%** |
-| Mediana da razão `KM/MILES` | **1,609354** (esperado: 1,60934) |
-| P99 do erro absoluto na consistência `MILES ↔ KM` | **0,001174 km** |
+| Classe funcional com maior extensão | **Minor Arterial — 32,87% da malha (milhas)** |
+| Estado com maior extensão total | **Texas — 54.760 km** |
+| Participação de corredores I/US (trechos) | **15,47%** |
+| Participação de corredores I/US (extensão) | **10,68%** |
+| Participação do NHS = 1 na extensão total | **10,69%** |
+| Mediana da razão KM/MILES | **1,609354** *(esperado: 1,60934)* |
+| P99 do erro absoluto MILES ↔ KM | **0,001174 km** |
 
-</div>
+### Continuidade topológica da rede
 
-### Indicadores de continuidade de rede (aproximação topológica)
+| Métrica | Valor |
+|---|:---:|
+| Rotas analisadas | 34.219 |
+| Segmentos analisados | 626.366 |
+| Segmentos órfãos | 370.727 **(59,19%)** |
+| Gaps entre segmentos | 10.004 |
+| Sobreposições entre segmentos | 405.354 |
 
-- Rotas analisadas: **34.219**;
-- Segmentos analisados: **626.366**;
-- Segmentos órfãos: **370.727** (**59,19%**);
-- Gaps entre segmentos: **10.004**;
-- Sobreposições entre segmentos: **405.354**.
-
-Esses resultados evidenciam o potencial da base para análise estratégica em escala nacional, ao mesmo tempo em que reforçam a importância de rotinas de controle topológico para aplicações de roteamento e modelagem de rede.
+> O alto índice de segmentos órfãos e sobreposições não invalida a base para análise estratégica, mas evidencia a necessidade de rotinas de controle topológico antes de qualquer aplicação em roteamento ou modelagem de rede.
 
 ---
 
-## 4. Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 .
 ├── notebooks/
 │   └── usa-highways/
-│       ├── eda-nhpn.ipynb                          # Notebook principal da análise exploratória
-│       └── README.md                               # Documentação do projeto
+│       ├── eda-nhpn.ipynb      # Notebook principal da análise
+│       └── README.md           # Este documento
 └── datasets/
     └── NTAD_National_Highway_Planning_Network_-129350642200434263.csv
-                                                     # Base NHPN utilizada no estudo
 ```
 
 ---
 
-## 5. Considerações Finais
+## Como Executar
 
-A EDA confirma que a base NHPN é robusta para análises de planejamento rodoviário em nível nacional, permitindo identificar concentração de extensão por classe funcional, estados prioritários e peso relativo de redes estratégicas como NHS/STRAHNET.
+**Pré-requisitos:** Python 3.9+ e Jupyter instalados.
 
-Como próximos avanços técnicos, recomenda-se:
+```bash
+# 1. Clone o repositório
+git clone <url-do-repositorio>
+cd <pasta-do-projeto>
 
-- integrar geometria vetorial original (shapefile/geojson) para análises de conectividade espacial mais fiéis;
-- calcular densidade real por área territorial (km/km²) por estado;
-- desenvolver indicadores compostos de criticidade para priorização de manutenção;
-- acoplar o pipeline a dashboards interativos para monitoramento contínuo.
+# 2. Instale as dependências
+pip install pandas matplotlib seaborn jupyter
+
+# 3. Abra o notebook
+jupyter notebook notebooks/usa-highways/eda-nhpn.ipynb
+```
+
+> Certifique-se de que o arquivo `.csv` está em `datasets/` antes de executar as células.
+
+---
+
+## Próximos Passos
+
+- [ ] Integrar geometria vetorial (shapefile/GeoJSON) para análise espacial de conectividade
+- [ ] Calcular densidade real por área territorial (km/km²) por estado
+- [ ] Desenvolver indicadores compostos de criticidade para priorização de manutenção
+- [ ] Construir dashboard interativo para monitoramento contínuo da rede
+
+---
+
+## Licença
+
+Projeto de caráter acadêmico vinculado à Universidade de Brasília. Cite de acordo com as normas institucionais vigentes.
 
 ---
 
 <div align="center">
 
-<br/>
-
 **Universidade de Brasília — UnB**  
-Departamento de Engenharia Civil - ENC
-
-<sub>Este documento é parte integrante do projeto acadêmico e deve ser referenciado de acordo com as normas institucionais vigentes.</sub>
-
-<br/>
+Departamento de Engenharia Civil — ENC
 
 </div>
