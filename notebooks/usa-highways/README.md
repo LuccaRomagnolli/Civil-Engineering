@@ -43,7 +43,6 @@ Os principais eixos da análise são:
 - **Distribuição funcional** da malha por classe de via (`F_SYSTEM`)
 - **Cobertura territorial** por estado (extensão em km)
 - **Corredores estratégicos**: NHS, STRAHNET e sinalização interestadual
-- **Consistência métrica** entre os campos `MILES`, `KM` e `Shape__Length`
 - **Continuidade topológica** por rota (segmentos, gaps e sobreposições)
 
 ---
@@ -197,13 +196,8 @@ A combinação STRAHNET + NHS delimita os corredores de interesse estratégico m
 5. Integração com sensoriamento remoto e SIG
 Shape__Length em graus + STFIPS viabilizam joins espaciais com shapefiles estaduais, dados de clima, risco de desastres naturais (FEMA) e cobertura de solo. Essa integração serve de base para análise de vulnerabilidade climática da malha e planejamento de resiliência em rodovias costeiras e de planície sujeitas a inundações.
 
-## Referências
+---
 
-- Federal Highway Administration (FHWA). *National Highway Planning Network Documentation*. U.S. Department of Transportation, 2014.
-- Bureau of Transportation Statistics (BTS). *National Transportation Atlas Database (NTAD)*. USDOT, 2014.
-- FHWA. *Highway Performance Monitoring System (HPMS) Field Manual*. Washington D.C., 2014.
-
-  
 ## Licença
 
 Projeto de caráter acadêmico vinculado à Universidade de Brasília. Cite de acordo com as normas institucionais vigentes.
