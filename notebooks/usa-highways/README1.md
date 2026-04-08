@@ -251,17 +251,6 @@ O recorte `STRAHNET` destaca corredores de relevância estratégica para mobilid
 
 ---
 
-#### Interpretação de `Shape__Length`
-
-| Medida | Valor |
-|---|---:|
-| Média de `KM / Shape__Length` | 98,550 |
-| Mediana de `KM / Shape__Length` | 97,711 |
-
-Essa razão confirma que `Shape__Length` não está em quilômetros — a leitura é consistente com geometria em graus decimais, o que exige reprojeção para um CRS métrico antes de qualquer uso espacial quantitativo rigoroso.
-
----
-
 ### Continuidade Topológica da Rede
 
 A análise de continuidade usa `ROUTE_ID`, `BEGMP` e `ENDMP` para aproximar conexões lineares por rota, com tolerância de 0,01 milha entre segmentos consecutivos.
