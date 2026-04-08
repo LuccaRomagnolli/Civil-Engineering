@@ -72,6 +72,16 @@ Este trabalho estrutura um pipeline de EDA orientado a três perfis de uso:
 | **Escala geográfica** | Estados Unidos (agrupamento por `STFIPS`) |
 | **Total de linhas** | 626.366 |
 | **Total de colunas** | 46 |
+| **Metadata Updated** | July 17, 2025 |
+| **Compilação da base** | May 01, 2014 |
+| **Cobertura territorial** | 48 estados contíguos + District of Columbia, Alaska, Hawaii e Puerto Rico |
+| **Escala nominal** | 1:100,000 |
+| **Erro posicional máximo** | 80 metros |
+
+### Fonte oficial e links
+
+- Catálogo Data.gov: https://catalog.data.gov/dataset/national-highway-planning-network1
+- Dicionário de dados (DOI): https://doi.org/10.21949/1529044
 
 ### Qualidade dos dados
 
@@ -182,3 +192,4 @@ Projeto de caráter acadêmico vinculado à Universidade de Brasília. Cite de a
 Departamento de Engenharia Civil — ENC
 
 </div>
+
