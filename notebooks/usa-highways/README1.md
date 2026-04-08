@@ -120,7 +120,7 @@ Em termos de completude, a base é muito consistente: os campos métricos princi
 
 ## Resultados
 
-### 1. Extensão por Categoria Funcional (`F_SYSTEM`)
+### Extensão por Categoria Funcional (`F_SYSTEM`)
 
 | Código | Classe | Milhas | % das milhas |
 |---|---|---:|---:|
