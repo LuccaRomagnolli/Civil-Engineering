@@ -137,7 +137,7 @@ As duas classes arteriais centrais — `Minor Arterial` e `Other Principal Arter
 
 ---
 
-### 2. Extensão por Estado
+### Extensão por Estado
 
 | Posição | Estado | Quilômetros | Milhas | Segmentos |
 |---|---|---:|---:|---:|
@@ -156,9 +156,9 @@ As duas classes arteriais centrais — `Minor Arterial` e `Other Principal Arter
 
 ---
 
-### 3. Sinalização e Corredores Principais (`SIGNT1`, `SIGN1`)
+### Sinalização e Corredores Principais (`SIGNT1`, `SIGN1`)
 
-#### 3.1 Distribuição geral por tipo de sinalização
+#### Distribuição geral por tipo de sinalização
 
 | Código `SIGNT1` | Tipo | Trechos | Milhas | % trechos | % milhas |
 |---|---|---:|---:|---:|---:|
@@ -171,11 +171,11 @@ As duas classes arteriais centrais — `Minor Arterial` e `Other Principal Arter
 
 As rodovias estaduais (`S`) dominam a malha em extensão e em número de trechos. As `U.S. Highways` (`U`) aparecem como a segunda categoria mais relevante, enquanto as `Interstate` respondem por uma fatia menor em extensão, apesar da importância estrutural.
 
-#### 3.2 Observação metodológica
+#### Observação metodológica
 
 No notebook, a célula de corredores principais usa o filtro `SIGNT1 in {'I', 'US'}`. Na base, o código observado para `U.S. Highway` é `U`, e não `US`. Por isso, o indicador salvo no notebook para `I/US` — **15,469% dos trechos** e **10,678% das milhas** — na prática coincide com os segmentos `Interstate`, e não com a soma `Interstate + U.S. Highway`.
 
-#### 3.3 Top 15 rotas por extensão
+#### Top 15 rotas por extensão
 
 | Posição | Rota | Tipo | Milhas | Trechos |
 |---|---|---|---:|---:|
@@ -197,7 +197,7 @@ No notebook, a célula de corredores principais usa o filtro `SIGNT1 in {'I', 'U
 
 ---
 
-### 4. Participação do National Highway System (`NHS`)
+### Participação do National Highway System (`NHS`)
 
 | Código NHS | Trechos | Milhas | % das milhas |
 |---|---:|---:|---:|
@@ -214,7 +214,7 @@ Somando todas as categorias com `NHS > 0`, a rede federalizada responde por **16
 
 ---
 
-### 5. Contraste Rural vs. Urbano
+### Contraste Rural vs. Urbano
 
 | Área | Segmentos | Milhas | % segmentos | % milhas |
 |---|---:|---:|---:|---:|
@@ -232,7 +232,7 @@ A rede urbana concentra mais segmentos, mas a rede rural concentra muito mais ex
 
 ---
 
-### 6. Cobertura STRAHNET
+### Cobertura STRAHNET
 
 O recorte `STRAHNET` destaca corredores de relevância estratégica para mobilidade militar e logística nacional. Na escala da base inteira, o STRAHNET soma **62.628,113 milhas** — equivalentes a **14,335%** da rede.
 
@@ -251,9 +251,9 @@ O recorte `STRAHNET` destaca corredores de relevância estratégica para mobilid
 
 ---
 
-### 7. Consistência entre `MILES`, `KM` e `Shape__Length`
+### Consistência entre `MILES`, `KM` e `Shape__Length`
 
-#### 7.1 Conversão `MILES ↔ KM`
+#### Conversão `MILES ↔ KM`
 
 | Verificação | Valor |
 |---|---:|
@@ -264,7 +264,7 @@ O recorte `STRAHNET` destaca corredores de relevância estratégica para mobilid
 
 Os campos `MILES` e `KM` estão altamente coerentes. A diferença observada é compatível com arredondamento numérico e não representa problema prático para análise exploratória ou indicadores executivos.
 
-#### 7.2 Interpretação de `Shape__Length`
+#### Interpretação de `Shape__Length`
 
 | Medida | Valor |
 |---|---:|
@@ -275,7 +275,7 @@ Essa razão confirma que `Shape__Length` não está em quilômetros — a leitur
 
 ---
 
-### 8. Continuidade Topológica da Rede
+### Continuidade Topológica da Rede
 
 A análise de continuidade usa `ROUTE_ID`, `BEGMP` e `ENDMP` para aproximar conexões lineares por rota, com tolerância de 0,01 milha entre segmentos consecutivos.
 
