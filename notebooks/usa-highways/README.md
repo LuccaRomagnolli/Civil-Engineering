@@ -180,6 +180,13 @@ jupyter notebook notebooks/usa-highways/eda-nhpn.ipynb
 
 ---
 
+## Referências
+
+- Federal Highway Administration (FHWA). *National Highway Planning Network Documentation*. U.S. Department of Transportation, 2014.
+- Bureau of Transportation Statistics (BTS). *National Transportation Atlas Database (NTAD)*. USDOT, 2014.
+- FHWA. *Highway Performance Monitoring System (HPMS) Field Manual*. Washington D.C., 2014.
+
+  
 ## Licença
 
 Projeto de caráter acadêmico vinculado à Universidade de Brasília. Cite de acordo com as normas institucionais vigentes.
