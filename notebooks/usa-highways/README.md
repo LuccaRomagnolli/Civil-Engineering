@@ -119,8 +119,6 @@ O notebook `eda-nhpn.ipynb` organiza oito eixos analíticos sequenciais:
 | Participação de corredores I/US (trechos) | **15,47%** |
 | Participação de corredores I/US (extensão) | **10,68%** |
 | Participação do NHS = 1 na extensão total | **10,69%** |
-| Mediana da razão KM/MILES | **1,609354** *(esperado: 1,60934)* |
-| P99 do erro absoluto MILES ↔ KM | **0,001174 km** |
 
 ### Continuidade topológica da rede
 
