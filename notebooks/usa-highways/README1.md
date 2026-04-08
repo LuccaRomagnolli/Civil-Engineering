@@ -278,12 +278,6 @@ Com base nos resultados do notebook, as principais implicações para engenharia
 - A consistência métrica é alta, favorecendo dashboards, comparações e indicadores
 - A continuidade topológica ainda exige saneamento antes de estudos de conectividade operacional
 
-### Agenda sugerida de curto prazo
-
-1. Implantar rotina de QA topológico por estado e por rota
-2. Estruturar carteira de investimento cruzando `F_SYSTEM`, `NHS`, `STRAHNET` e extensão estadual
-3. Publicar painel executivo com KPIs padronizados por estado, corredor e risco de continuidade
-
 ---
 
 ## Próximos Passos
