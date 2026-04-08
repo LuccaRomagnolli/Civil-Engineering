@@ -43,7 +43,6 @@ Os principais eixos da análise são:
 - **Distribuição funcional** da malha por classe de via (`F_SYSTEM`)
 - **Cobertura territorial** por estado (extensão em km)
 - **Corredores estratégicos**: NHS, STRAHNET e sinalização interestadual
-- **Consistência métrica** entre os campos `MILES`, `KM` e `Shape__Length`
 - **Continuidade topológica** por rota (segmentos, gaps e sobreposições)
 
 ---
@@ -177,6 +176,25 @@ jupyter notebook notebooks/usa-highways/eda-nhpn.ipynb
 - [ ] Calcular densidade real por área territorial (km/km²) por estado
 - [ ] Desenvolver indicadores compostos de criticidade para priorização de manutenção
 - [ ] Construir dashboard interativo para monitoramento contínuo da rede
+
+---
+
+## Aplicações Práticas
+
+1. Modelagem de redes e roteirização
+Os campos CONN_ID, FAC_ID e LRSKEY permitem reconstruir a topologia completa da rede como grafo dirigido. Esse grafo é diretamente aplicável a algoritmos de menor caminho (Dijkstra, A*) para logística de cargas, resposta a emergências e análise de resiliência da rede frente a bloqueios ou eventos de desastre natural.
+
+2. Análise de acessibilidade territorial
+Combinando STFIPS, URBAN_CODE e F_SYSTEM é possível calcular índices de acessibilidade por county — identificando regiões com déficit de conectividade arterial. Esse tipo de análise é relevante para políticas de equidade de infraestrutura e priorização de investimentos via programas NHS e STRAHNET.
+
+3. Monitoramento de desempenho (HPMS)
+O NHPN é a base geoespacial do Highway Performance Monitoring System. Cruzando com dados de VMT (vehicle miles traveled) e condição do pavimento, é possível calcular índices de desempenho por segmento — suporte direto à visualização do painel HPMS do FHWA.
+
+4. Planejamento de corredores logísticos
+A combinação STRAHNET + NHS delimita os corredores de interesse estratégico militar e econômico nacional. Útil para planejamento de infraestrutura de cargas pesadas, identificação de gargalos de capacidade e priorização de modernização de pontes e viadutos em rotas críticas.
+
+5. Integração com sensoriamento remoto e SIG
+Shape__Length em graus + STFIPS viabilizam joins espaciais com shapefiles estaduais, dados de clima, risco de desastres naturais (FEMA) e cobertura de solo. Essa integração serve de base para análise de vulnerabilidade climática da malha e planejamento de resiliência em rodovias costeiras e de planície sujeitas a inundações.
 
 ---
 
