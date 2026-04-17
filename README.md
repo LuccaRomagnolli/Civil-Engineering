@@ -19,12 +19,6 @@ Civil-Engineering/
 `-- LICENSE
 ```
 
-## Como Executar (VS Code)
-1. Crie e ative um ambiente virtual Python.
-2. Rode a task `Instalar dependencias` em `Terminal > Run Task`.
-3. Rode a task `Smoke test whole-detection` para validar o pipeline com 1 epoca.
-4. Abra e execute o notebook `deteccao-buracos-cnn-baseline.ipynb` do inicio ao fim.
-
 ## Autor
 Lucca Romagnolli
 
